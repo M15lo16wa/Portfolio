@@ -1,4 +1,17 @@
 ---
+const diplomas = [
+  {
+    title: 'Master 1 en Informatique',
+    sub: 'Spécialisation Réseaux, Télécommunications, DevOps & Cybersécurité — formation continue',
+    status: 'En cours',
+  },
+  {
+    title: 'Licence en Informatique',
+    sub: 'Spécialisation Réseaux, Télécommunications, DevOps & Cybersécurité',
+    status: 'Obtenue',
+  },
+];
+
 const languages = [
   { name: 'Français', level: 'Langue maternelle', pct: 100 },
   { name: 'Anglais', level: 'Notions de base', pct: 35 },
@@ -14,9 +27,21 @@ const languages = [
 
     <div class="grid grid-2">
       <div class="panel">
-        <span class="tag">diplôme</span>
-        <h3 class="formation-title">Licence en Informatique</h3>
-        <p class="formation-sub">Spécialisation Réseaux, Télécommunications, DevOps &amp; Cybersécurité</p>
+        <span class="tag">diplômes</span>
+        <div class="diploma-list">
+          {diplomas.map((d) => (
+            <div class="diploma-item">
+              <div class="diploma-head">
+                <h3 class="formation-title">{d.title}</h3>
+                <span class="badge">
+                  <span class={`badge-dot ${d.status === 'En cours' ? 'warn' : ''}`}></span>
+                  {d.status}
+                </span>
+              </div>
+              <p class="formation-sub">{d.sub}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div class="panel">
@@ -40,12 +65,28 @@ const languages = [
 </section>
 
 <style>
-  .formation-title {
+  .diploma-list {
     margin-top: 14px;
-    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .diploma-item + .diploma-item {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .diploma-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .formation-title {
+    font-size: 18px;
   }
   .formation-sub {
-    margin-top: 10px;
+    margin-top: 8px;
     font-size: 14px;
   }
   .lang-list {
