@@ -1,13 +1,17 @@
 ---
+const school = 'École Centrale des Logiciels Libres et de Télécommunication';
+
 const diplomas = [
   {
     title: 'Master 1 en Informatique',
-    sub: 'Spécialisation Réseaux, Télécommunications, DevOps & Cybersécurité — formation continue',
+    sub: `Spécialisation Réseaux, Télécommunications, DevOps & Cybersécurité — formation continue · ${school}`,
+    years: '2026 – 2027',
     status: 'En cours',
   },
   {
     title: 'Licence en Informatique',
-    sub: 'Spécialisation Réseaux, Télécommunications, DevOps & Cybersécurité',
+    sub: `Spécialisation Réseaux, Télécommunications, DevOps & Cybersécurité · ${school}`,
+    years: '2022 – 2025',
     status: 'Obtenue',
   },
 ];
@@ -21,7 +25,7 @@ const languages = [
 <section id="formation" class="section">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">04</span>
+      <span class="section-tag">05</span>
       <h2 class="section-title">Formation &amp; langues</h2>
     </div>
 
@@ -33,10 +37,13 @@ const languages = [
             <div class="diploma-item">
               <div class="diploma-head">
                 <h3 class="formation-title">{d.title}</h3>
-                <span class="badge">
-                  <span class={`badge-dot ${d.status === 'En cours' ? 'warn' : ''}`}></span>
-                  {d.status}
-                </span>
+                <div class="diploma-meta">
+                  <span class="mono diploma-years">{d.years}</span>
+                  <span class="badge">
+                    <span class={`badge-dot ${d.status === 'En cours' ? 'warn' : ''}`}></span>
+                    {d.status}
+                  </span>
+                </div>
               </div>
               <p class="formation-sub">{d.sub}</p>
             </div>
@@ -84,6 +91,15 @@ const languages = [
   }
   .formation-title {
     font-size: 18px;
+  }
+  .diploma-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .diploma-years {
+    font-size: 12px;
+    color: var(--text-faint);
   }
   .formation-sub {
     margin-top: 8px;

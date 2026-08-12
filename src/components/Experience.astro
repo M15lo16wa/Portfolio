@@ -1,0 +1,85 @@
+---
+const experience = {
+  role: 'Ingénieur logiciel — Alternance',
+  company: '2SI Expertise et Innovation',
+  companyDesc:
+    "Startup spécialisée dans l'accompagnement, l'audit et le conseil en TIC.",
+  period: 'Janvier 2026 – Novembre 2026',
+  duration: '10 mois',
+  status: 'En cours',
+};
+---
+
+<section id="experience" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">02</span>
+      <h2 class="section-title">Expérience</h2>
+    </div>
+
+    <div class="panel exp-panel">
+      <div class="exp-head">
+        <div>
+          <span class="badge">
+            <span class="badge-dot warn"></span>
+            {experience.status}
+          </span>
+          <h3 class="exp-role">{experience.role}</h3>
+          <p class="exp-company mono">{experience.company}</p>
+        </div>
+        <div class="exp-meta mono">
+          <span>{experience.period}</span>
+          <span class="exp-duration">{experience.duration}</span>
+        </div>
+      </div>
+      <p class="exp-desc">{experience.companyDesc}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .exp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .exp-role {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .exp-company {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--accent-2);
+  }
+  .exp-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: right;
+  }
+  .exp-duration {
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+  .exp-desc {
+    font-size: 14px;
+    max-width: 640px;
+  }
+  @media (max-width: 640px) {
+    .exp-meta {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+</style>

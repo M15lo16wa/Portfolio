@@ -5,6 +5,15 @@ const stats = [
   { value: '20+', label: 'outils & technos maîtrisés' },
   { value: 'FR / EN', label: 'langues' },
 ];
+
+const qualities = [
+  'Curiosité & esprit d’analyse',
+  'Esprit d’équipe & communication',
+  'Rigueur & autonomie',
+  'Adaptabilité & réactivité',
+];
+
+const hobbies = ['Lecture', 'Jeux vidéo', 'Football'];
 ---
 
 <section id="about" class="section">
@@ -39,6 +48,26 @@ const stats = [
         ))}
       </div>
     </div>
+
+    <div class="grid grid-2 about-extra">
+      <div class="panel">
+        <span class="tag">qualités</span>
+        <div class="chip-list">
+          {qualities.map((q) => (
+            <span class="tag chip">{q}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="panel">
+        <span class="tag">centres d’intérêt</span>
+        <div class="chip-list">
+          {hobbies.map((h) => (
+            <span class="tag chip">{h}</span>
+          ))}
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -65,6 +94,18 @@ const stats = [
     margin-top: 6px;
     font-size: 13px;
     color: var(--text-dim);
+  }
+  .about-extra {
+    margin-top: 20px;
+  }
+  .chip-list {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    padding: 6px 12px;
   }
   @media (max-width: 860px) {
     .about-grid {
