@@ -51,21 +51,21 @@ const hobbies = ['Lecture', 'Jeux vidéo', 'Football'];
 
     <div class="grid grid-2 about-extra">
       <div class="panel">
-        <span class="tag">qualités</span>
-        <div class="chip-list">
+        <h3 class="extra-title">Qualités</h3>
+        <ul class="extra-list">
           {qualities.map((q) => (
-            <span class="tag chip">{q}</span>
+            <li>{q}</li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <div class="panel">
-        <span class="tag">centres d’intérêt</span>
-        <div class="chip-list">
+        <h3 class="extra-title">Centres d’intérêt</h3>
+        <ul class="extra-list">
           {hobbies.map((h) => (
-            <span class="tag chip">{h}</span>
+            <li>{h}</li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   </div>
@@ -98,14 +98,19 @@ const hobbies = ['Lecture', 'Jeux vidéo', 'Football'];
   .about-extra {
     margin-top: 20px;
   }
-  .chip-list {
-    margin-top: 14px;
+  .extra-title {
+    font-size: 16px;
+  }
+  .extra-list {
+    margin: 14px 0 0;
+    padding-left: 18px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 8px;
   }
-  .chip {
-    padding: 6px 12px;
+  .extra-list li {
+    font-size: 14px;
+    color: var(--text-dim);
   }
   @media (max-width: 860px) {
     .about-grid {
