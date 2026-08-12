@@ -14,7 +14,6 @@ export interface Project {
   category: string;
   tags: string[];
   repos: Repo[];
-  note?: string;
 }
 
 export const projects: Project[] = [
@@ -42,7 +41,6 @@ export const projects: Project[] = [
     category: 'DevOps / Infrastructure',
     tags: ['Proxmox', 'Terraform', 'GitLab CI/CD', 'IaC'],
     repos: [],
-    note: 'Projet réalisé en environnement de lab privé — dépôt non publié.',
   },
   {
     slug: 'reservation-vols',
@@ -70,7 +68,6 @@ export const projects: Project[] = [
     category: 'Cybersécurité offensive',
     tags: ['Pentest', 'OWASP', 'Sécurité offensive', 'JavaScript'],
     repos: [{ label: 'Code source', url: 'https://github.com/M15lo16wa/vulnerable' }],
-    note: "À des fins pédagogiques uniquement : environnement isolé pour l'entraînement aux tests de vulnérabilités.",
   },
   {
     slug: 'gestion-incidents',
