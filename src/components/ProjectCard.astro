@@ -1,0 +1,92 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+
+const dotClass: Record<Project['status'], string> = {
+  production: '',
+  prototype: '',
+  lab: 'warn',
+  archive: '',
+};
+---
+
+<article class="panel card">
+  <div class="card-head">
+    <span class="badge">
+      <span class={`badge-dot ${dotClass[project.status]}`}></span>
+      {project.statusLabel}
+    </span>
+    <span class="tag category">{project.category}</span>
+  </div>
+
+  <h3 class="card-title">{project.title}</h3>
+  <p class="card-desc">{project.description}</p>
+
+  {project.note && <p class="card-note mono">// {project.note}</p>}
+
+  <div class="card-tags">
+    {project.tags.map((tag) => (
+      <span class="tag">{tag}</span>
+    ))}
+  </div>
+
+  {project.repos.length > 0 && (
+    <div class="card-links">
+      {project.repos.map((repo) => (
+        <a class="btn btn-ghost repo-link" href={repo.url} target="_blank" rel="noopener noreferrer">
+          {repo.label} ↗
+        </a>
+      ))}
+    </div>
+  )}
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .category {
+    color: var(--accent-2);
+  }
+  .card-title {
+    margin-top: 16px;
+    font-size: 18px;
+  }
+  .card-desc {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .card-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--warn);
+  }
+  .card-tags {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card-links {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .repo-link {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+</style>

@@ -1,0 +1,82 @@
+---
+const contacts = [
+  { label: 'Email', value: 'molowaroyalemile@gmail.com', href: 'mailto:molowaroyalemile@gmail.com' },
+  { label: 'Téléphone', value: '+221 77 167 47 10', href: 'tel:+221771674710' },
+  { label: 'Localisation', value: 'Dakar, Sénégal', href: null },
+  { label: 'GitHub', value: 'github.com/M15lo16wa', href: 'https://github.com/M15lo16wa' },
+];
+---
+
+<section id="contact" class="section contact-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">05</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+
+    <div class="panel contact-panel">
+      <p class="contact-intro">
+        Ouvert aux opportunités de stage, d'alternance ou de collaboration sur des projets
+        réseau, sécurité ou infrastructure. N'hésitez pas à me contacter.
+      </p>
+
+      <div class="contact-grid mono">
+        {contacts.map((c) => (
+          <div class="contact-item">
+            <span class="contact-label">{c.label}</span>
+            {c.href ? (
+              <a href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                {c.value}
+              </a>
+            ) : (
+              <span>{c.value}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <a class="btn btn-primary mono" href="mailto:molowaroyalemile@gmail.com">
+        Envoyer un email →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    border-bottom: none;
+  }
+  .contact-panel {
+    max-width: 720px;
+  }
+  .contact-intro {
+    font-size: 15px;
+    max-width: 560px;
+  }
+  .contact-grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+  }
+  .contact-label {
+    color: var(--text-faint);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .btn {
+    margin-top: 32px;
+  }
+  @media (max-width: 560px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

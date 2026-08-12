@@ -1,0 +1,56 @@
+---
+import { skillPanels } from '../data/skills';
+---
+
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">02</span>
+      <h2 class="section-title">Compétences techniques</h2>
+    </div>
+
+    <div class="grid grid-3">
+      {skillPanels.map((panel) => (
+        <div class="panel skill-panel">
+          <div class="skill-head">
+            <h3 class="skill-title">{panel.title}</h3>
+            <span class="tag">{panel.metric}</span>
+          </div>
+          <ul class="skill-list">
+            {panel.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-panel {
+    display: flex;
+    flex-direction: column;
+  }
+  .skill-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .skill-title {
+    font-size: 16px;
+  }
+  .skill-list {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .skill-list li {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="projects" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">03</span>
+      <h2 class="section-title">Projets</h2>
+    </div>
+
+    <div class="grid grid-2">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+
+    <p class="more mono">
+      Plus de projets sur
+      <a href="https://github.com/M15lo16wa" target="_blank" rel="noopener noreferrer">github.com/M15lo16wa ↗</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .more {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+</style>

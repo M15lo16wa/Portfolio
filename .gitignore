@@ -1,0 +1,28 @@
+# build output
+dist/
+.dist/
+
+# local tooling config
+.claude/
+
+# dependencies
+node_modules/
+
+# generated types
+.astro/
+
+# logs
+npm-debug.log*
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# os
+.DS_Store

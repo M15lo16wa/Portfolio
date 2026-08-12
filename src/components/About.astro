@@ -1,0 +1,74 @@
+---
+const stats = [
+  { value: '2+', label: 'ans de pratique projets' },
+  { value: '7', label: 'projets publiés' },
+  { value: '20+', label: 'outils & technos maîtrisés' },
+  { value: 'FR / EN', label: 'langues' },
+];
+---
+
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">01</span>
+      <h2 class="section-title">À propos</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="panel about-text">
+        <p>
+          Étudiant en informatique, option <strong>Réseaux &amp; Télécommunications</strong>
+          avec une spécialisation <strong>Cybersécurité</strong> et <strong>DevOps</strong>.
+          Je m'intéresse autant à la sécurisation et à la supervision d'infrastructures
+          réseau qu'à l'automatisation de leur déploiement et au développement
+          d'applications qui s'appuient dessus.
+        </p>
+        <p style="margin-top: 16px;">
+          Mon approche : comprendre la stack de bout en bout — du câblage et du
+          pare-feu jusqu'au pipeline CI/CD et au code applicatif — pour livrer des
+          systèmes robustes, supervisés et automatisés.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        {stats.map((s) => (
+          <div class="panel stat">
+            <div class="stat-value mono">{s.value}</div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+  }
+  .about-text p {
+    font-size: 16px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .stat-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .stat-label {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

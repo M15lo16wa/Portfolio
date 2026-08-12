@@ -1,0 +1,79 @@
+---
+const languages = [
+  { name: 'Français', level: 'Langue maternelle', pct: 100 },
+  { name: 'Anglais', level: 'Notions de base', pct: 35 },
+];
+---
+
+<section id="formation" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">04</span>
+      <h2 class="section-title">Formation &amp; langues</h2>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="panel">
+        <span class="tag">diplôme</span>
+        <h3 class="formation-title">Licence en Informatique</h3>
+        <p class="formation-sub">Spécialisation Réseaux, Télécommunications, DevOps &amp; Cybersécurité</p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">langues</span>
+        <div class="lang-list">
+          {languages.map((lang) => (
+            <div class="lang-row">
+              <div class="lang-label">
+                <span>{lang.name}</span>
+                <span class="mono lang-level">{lang.level}</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style={`width:${lang.pct}%`}></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .formation-title {
+    margin-top: 14px;
+    font-size: 20px;
+  }
+  .formation-sub {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .lang-list {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .lang-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .lang-level {
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+  .bar-track {
+    height: 6px;
+    border-radius: 100px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 100px;
+  }
+</style>
