@@ -16,6 +16,7 @@ export const skillPanels: SkillPanel[] = [
       'Windows Server & Active Directory',
       'SAMBA4',
       'Linux (Ubuntu, Kali, Forensic OSINT)',
+      'Téléphonie sur IP — Asterisk',
     ],
   },
   {
@@ -60,7 +61,6 @@ export const skillPanels: SkillPanel[] = [
       'Frontend — HTML, CSS, JavaScript, React, Next.js, Nuxt',
       'Mobile — React Native',
       'Backend — Node.js, Java, PHP, Python',
-      'ToIP — Asterisk',
     ],
   },
 ];
