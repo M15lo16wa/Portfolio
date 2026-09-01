@@ -1,13 +1,24 @@
 ---
-const experience = {
-  role: 'Ingénieur logiciel — Alternance',
-  company: '2SI Expertise et Innovation',
-  companyDesc:
-    "Startup spécialisée dans l'accompagnement, l'audit et le conseil en TIC.",
-  period: 'Janvier 2026 – Novembre 2026',
-  duration: '10 mois',
-  status: 'En cours',
-};
+const experiences = [
+  {
+    role: 'Ingénieur logiciel — Alternance',
+    company: '2SI Expertise et Innovation',
+    companyDesc:
+      "Startup spécialisée dans l'accompagnement, l'audit et le conseil en TIC.",
+    period: 'Janvier 2026 – Novembre 2026',
+    duration: '10 mois',
+    status: 'En cours',
+  },
+  {
+    role: 'Développeur junior — Stage de fin de cycle',
+    company: 'RTN (Réseau et Techniques Numérique)',
+    companyDesc:
+      "Stage de fin de cycle de 3ème année (Réseaux & Télécommunications, option DevOps & Cybersécurité), axé développement — dans la continuité du projet de soutenance.",
+    period: 'Novembre 2024 – Juillet 2025',
+    duration: '9 mois',
+    status: 'Terminé',
+  },
+];
 ---
 
 <section id="experience" class="section">
@@ -17,27 +28,36 @@ const experience = {
       <h2 class="section-title">Expérience</h2>
     </div>
 
-    <div class="panel exp-panel">
-      <div class="exp-head">
-        <div>
-          <span class="badge">
-            <span class="badge-dot warn"></span>
-            {experience.status}
-          </span>
-          <h3 class="exp-role">{experience.role}</h3>
-          <p class="exp-company mono">{experience.company}</p>
+    <div class="exp-list">
+      {experiences.map((experience) => (
+        <div class="panel exp-panel">
+          <div class="exp-head">
+            <div>
+              <span class="badge">
+                <span class={`badge-dot ${experience.status === 'En cours' ? 'warn' : ''}`}></span>
+                {experience.status}
+              </span>
+              <h3 class="exp-role">{experience.role}</h3>
+              <p class="exp-company mono">{experience.company}</p>
+            </div>
+            <div class="exp-meta mono">
+              <span>{experience.period}</span>
+              <span class="exp-duration">{experience.duration}</span>
+            </div>
+          </div>
+          <p class="exp-desc">{experience.companyDesc}</p>
         </div>
-        <div class="exp-meta mono">
-          <span>{experience.period}</span>
-          <span class="exp-duration">{experience.duration}</span>
-        </div>
-      </div>
-      <p class="exp-desc">{experience.companyDesc}</p>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   .exp-panel {
     display: flex;
     flex-direction: column;
