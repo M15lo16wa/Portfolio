@@ -7,6 +7,7 @@ const links = [
   { href: '#formation', label: 'formation' },
   { href: '#contact', label: 'contact' },
 ];
+const cvUrl = `${import.meta.env.BASE_URL}molowa.pdf`;
 ---
 
 <header class="header">
@@ -15,11 +16,41 @@ const links = [
     <nav class="nav mono">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
     </nav>
-    <a class="btn btn-primary cv-btn mono" href={`${import.meta.env.BASE_URL}molowa.pdf`} download>
-      ⬇ CV
-    </a>
+    <div class="cv-actions">
+      <button type="button" class="btn btn-ghost cv-btn mono" id="cv-preview-open">
+        👁 Aperçu
+      </button>
+      <a class="btn btn-primary cv-btn mono" href={cvUrl} download>
+        ⬇ CV
+      </a>
+    </div>
   </div>
 </header>
+
+<dialog id="cv-preview-dialog" class="cv-dialog">
+  <div class="cv-dialog-head">
+    <span class="mono cv-dialog-title">molowa.pdf</span>
+    <div class="cv-dialog-actions">
+      <a class="btn btn-ghost cv-dialog-btn mono" href={cvUrl} download>⬇ Télécharger</a>
+      <button type="button" class="btn btn-ghost cv-dialog-btn mono" id="cv-preview-close" aria-label="Fermer l'aperçu">
+        ✕
+      </button>
+    </div>
+  </div>
+  <iframe class="cv-dialog-frame" src={cvUrl} title="Aperçu du CV de Molowa Essonga Emile Royal"></iframe>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('cv-preview-dialog') as HTMLDialogElement | null;
+  const openBtn = document.getElementById('cv-preview-open');
+  const closeBtn = document.getElementById('cv-preview-close');
+
+  openBtn?.addEventListener('click', () => dialog?.showModal());
+  closeBtn?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>
 
 <style>
   .header {
@@ -60,6 +91,11 @@ const links = [
     color: var(--accent);
     text-decoration: none;
   }
+  .cv-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
   .cv-btn {
     padding: 8px 16px;
     font-size: 13px;
@@ -68,5 +104,59 @@ const links = [
     .nav {
       display: none;
     }
+  }
+  @media (max-width: 460px) {
+    #cv-preview-open span,
+    #cv-preview-open {
+      padding: 8px 12px;
+    }
+  }
+
+  .cv-dialog {
+    width: min(880px, 92vw);
+    height: min(85vh, 1000px);
+    padding: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    background: var(--panel);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .cv-dialog::backdrop {
+    background: rgba(4, 6, 9, 0.75);
+    backdrop-filter: blur(2px);
+  }
+  .cv-dialog[open] {
+    display: flex;
+  }
+  .cv-dialog-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .cv-dialog-title {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .cv-dialog-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cv-dialog-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .cv-dialog-frame {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    background: #fff;
   }
 </style>
