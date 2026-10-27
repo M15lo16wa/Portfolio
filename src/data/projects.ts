@@ -18,20 +18,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: 'dossier-medical',
-    title: 'Plateforme de dossier médical partagé',
-    description:
-      "Système centralisé pour la gestion des données patients, conçu pour la digitalisation du secteur de la santé et l'interopérabilité entre établissements. Frontend ReactJS connecté à une API dédiée.",
-    status: 'prototype',
-    statusLabel: 'Prototype fonctionnel',
-    category: 'Développement / Santé numérique',
-    tags: ['ReactJS', 'API REST', 'Santé', 'Interopérabilité'],
-    repos: [
-      { label: 'Frontend', url: 'https://github.com/M15lo16wa/memoirApplication' },
-      { label: 'API', url: 'https://github.com/M15lo16wa/apiMemoire' },
-    ],
-  },
-  {
     slug: 'proxmox-terraform',
     title: "Automatisation d'infrastructure — Proxmox & Terraform",
     description:
@@ -41,22 +27,6 @@ export const projects: Project[] = [
     category: 'DevOps / Infrastructure',
     tags: ['Proxmox', 'Terraform', 'GitLab CI/CD', 'IaC'],
     repos: [],
-  },
-  {
-    slug: 'reservation-vols',
-    title: 'Plateforme de réservation de vols',
-    description:
-      "Application de réservation de vols en ligne développée en plusieurs itérations : API back-end (Laravel puis Node.js/TypeScript) et interface front-end pour la gestion du parcours de réservation.",
-    status: 'archive',
-    statusLabel: 'Projet itératif',
-    category: 'Full-stack',
-    tags: ['Laravel', 'TypeScript', 'API REST', 'Full-stack'],
-    repos: [
-      { label: 'App', url: 'https://github.com/M15lo16wa/ReservationVols' },
-      { label: 'API Laravel', url: 'https://github.com/M15lo16wa/laravel-reservation' },
-      { label: 'API Node.js', url: 'https://github.com/M15lo16wa/FlightBookingApi' },
-      { label: 'v2 (TypeScript)', url: 'https://github.com/M15lo16wa/reservationVol2' },
-    ],
   },
   {
     slug: 'vulnerable-lab',
